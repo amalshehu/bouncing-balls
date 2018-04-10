@@ -2,11 +2,9 @@
 
 var canvas = document.querySelector('canvas')
 
-// canvas.getContext('2d') Returns an object that provides methods and properties
-// for drawing and manipulating images and graphics on a canvas
-// element in a document. A context object includes information
-// about colors, line widths, fonts, and other graphic parameters
-// that can be drawn on a canvas.
+// canvas.getContext('2d') returns an object that directly represents
+// the drawing area of the canvas and
+// allows us to draw 2D shapes on it.
 
 var ctx = canvas.getContext('2d')
 
@@ -18,4 +16,13 @@ var height = (canvas.height = window.innerHeight)
 function random(min, max) {
   var num = Math.floor(Math.random() * (max - min)) + min
   return num
+}
+
+function Ball(x, y, velX, velY, color, size) {
+  this.x = x
+  this.y = y
+  this.velX = velX
+  this.velY = velY
+  this.color = color
+  this.size = size
 }
