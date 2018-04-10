@@ -28,8 +28,32 @@ function Ball(x, y, velX, velY, color, size) {
 }
 
 Ball.prototype.draw = function() {
+  //  beginPath() to state that we want to draw a shape on the paper.
   ctx.beginPath()
+  //  fillStyle to define what color we want the
+  //  shape to be — we set it to our ball's color property.
   ctx.fillStyle = this.color
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI)
   ctx.fill()
+}
+
+Ball.prototype.update = function() {
+  if (this.x + this.size >= width) {
+    this.velX = -this.velX
+  }
+
+  if (this.x - this.size <= 0) {
+    this.velX = -this.velX
+  }
+
+  if (this.y + this.size >= height) {
+    this.velY = -this.velY
+  }
+
+  if (this.y - this.size <= 0) {
+    this.velY = -this.velY
+  }
+
+  this.x += this.velX
+  this.y += this.velY
 }
